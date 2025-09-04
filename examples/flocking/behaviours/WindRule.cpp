@@ -8,15 +8,12 @@ Vector2f WindRule::computeForce(const std::vector<Boid*>& neighborhood, Boid* bo
   // todo: add a wind force here
   // hint: use the windAngle variable
   // constant for every boid
-  const float cos = std::cos(windAngle);
-  const float sin = std::sin(windAngle);
-  Vector2f dir{cos,sin};
+  Vector2f windDirection(cos(windAngle), sin(windAngle));
 
-  float strength = 5.0f;
-  Vector2f force = dir * strength;
+  float strength = 1.0f;
+  Vector2f force = windDirection * strength;
 
   return  force;
-
 }
 
 bool WindRule::drawImguiRuleExtra() {
